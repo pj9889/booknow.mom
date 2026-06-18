@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Locanto For Meetup</title>
+    
+    <link rel="icon" type="image/webp" href="locantof1.webp">
+    <link rel="shortcut icon" href="locantof1.webp" type="image/webp">
+
     <style>
         * {
             margin: 0;
@@ -160,7 +164,7 @@
             20%, 40%, 60%, 80% { transform: translateX(3px); }
         }
 
-        /* আধুনিক ও প্রিমিয়াম ম্যাচিং স্ক্রিন */
+        /* প্রিমিয়াম ম্যাচিং স্ক্রিন */
         #bufferingScreen {
             display: none;
             position: fixed;
@@ -179,7 +183,7 @@
 
         .radar-box {
             position: relative;
-            width: 220px; /* সাইজ বড় করা হয়েছে */
+            width: 220px;
             height: 220px;
             border: 3px solid rgba(0, 219, 222, 0.2);
             border-radius: 50%;
@@ -191,7 +195,6 @@
             box-shadow: 0 0 30px rgba(0, 219, 222, 0.1);
         }
 
-        /* রিয়ালিস্টিক রাডার লাইন এফেক্ট */
         .radar-box::before {
             content: '';
             position: absolute;
@@ -225,14 +228,13 @@
         }
 
         .live-photo-scan {
-            width: 140px; /* স্ক্যানিং ইমেজ সাইজ বড় করা হয়েছে */
+            width: 140px;
             height: 140px;
             border-radius: 50%;
             border: 4px solid #fc00ff;
             object-fit: cover;
             z-index: 5;
             box-shadow: 0 0 25px rgba(252, 0, 255, 0.5);
-            transition: src 0.05s ease-in-out; /* স্মুথ ট্রানজিশন */
         }
 
         .scan-status {
@@ -265,38 +267,23 @@
             z-index: 5;
             height: 100vh;
             width: 100vw;
-            background-color: #060713; /* ডার্ক থিম ম্যাচিং ব্যাকগ্রাউন্ড */
+            background-color: #050612;
             overflow-y: auto;
             flex-direction: column;
-            justify-content: flex-start;
+            justify-content: center;
             align-items: center;
             padding: 20px;
         }
 
-        .final-logo-box {
-            margin-top: 10px;
-            margin-bottom: 5px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .final-logo-box img {
-            width: 100%;
-            max-width: 240px;
-            height: auto;
-            object-fit: contain;
-        }
-
-        .powered-tag {
+        .trusted-tag {
             font-size: 12px;
-            color: #888;
+            color: #94a3b8;
             text-align: center;
             width: 100%;
-            margin: 5px auto 25px auto;
-            font-weight: bold;
-            letter-spacing: 0.5px;
+            margin-top: 20px;
+            font-weight: 500;
+            letter-spacing: 0.8px;
+            opacity: 0.8;
         }
 
         .profile-container {
@@ -401,22 +388,49 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 10;
+            z-index: 30;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: #060713;
+            background: #050612;
             color: #fff;
+            padding: 30px;
+        }
+
+        .connecting-notice {
+            font-size: 18px;
+            line-height: 1.5;
+            color: #f1f5f9;
+            text-align: center;
+            max-width: 420px;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .connecting-notice span {
+            color: #00dbde;
+            font-weight: bold;
+        }
+
+        .connecting-notice .free-badge {
+            color: #23d160;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: rgba(35, 209, 96, 0.15);
+            padding: 2px 8px;
+            border-radius: 4px;
+            border: 1px solid rgba(35, 209, 96, 0.3);
+            display: inline-block;
+            margin-top: 5px;
         }
 
         .spinner {
             border: 4px solid rgba(255,255,255,0.1);
-            width: 50px;
-            height: 50px;
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
-            border-left-color: #00dbde;
+            border-left-color: #fc00ff;
             animation: spin 0.8s linear infinite;
-            margin-top: 25px;
         }
 
         @keyframes spin {
@@ -481,11 +495,6 @@
     </div>
 
     <div id="finalPage">
-        <div class="final-logo-box">
-            <img src="lgd1.png" alt="Locanto Logo">
-        </div>
-        <div class="powered-tag">Powered by Locanto</div>
-
         <div class="card" style="background: rgba(15, 15, 25, 0.98); border-color: rgba(0, 219, 222, 0.2); width: 100%; margin-top: 0;">
             <p class="text-title" style="color: #00dbde; font-weight: bold; font-size: 16px; margin-bottom: 10px;">
                 A single woman has been found near your location! She has requested private encounters and satisfaction.
@@ -525,14 +534,15 @@
                 Complete Your Profile
             </div>
         </div>
+        <div class="trusted-tag">🔒 Official Partner Site | Powered by Locanto</div>
     </div>
 
     <div id="finalBufferingScreen">
-        <div class="final-logo-box" style="margin-bottom: 0;">
-            <img src="lgd1.png" alt="Locanto Logo">
+        <div class="connecting-notice">
+            Connecting you with <span>Alyssa Watson</span>...<br>
+            Please register for <span class="free-badge">FREE</span> on the next page to start instant private chat.
         </div>
-        <div class="powered-tag">Powered by Locanto</div>
-        <div class="spinner" style="border-left-color: #fc00ff; border-top-color: rgba(255,255,255,0.1);"></div>
+        <div class="spinner"></div>
     </div>
 
     <script>
@@ -564,12 +574,11 @@
             const detailsText = document.getElementById('scanDetailsText');
             const scanPic = document.getElementById('liveScanPic');
 
-            // ইমেজ পরিবর্তন করার জন্য অত্যন্ত স্মুথ মেকানিজম (কোনো ল্যাগ করবে না)
             let picNumber = 1;
             const picInterval = setInterval(() => {
                 scanPic.src = 'q' + picNumber + '.webp';
                 picNumber = (picNumber % 10) + 1;
-            }, 80); // গতি সামান্য বৃদ্ধি করা হয়েছে স্মুথনেস বাড়ানোর জন্য
+            }, 80); 
 
             setTimeout(() => {
                 statusText.innerText = "SEARCHING NEARBY TRAFFIC...";
@@ -592,7 +601,6 @@
                 setTimeout(() => {
                     document.getElementById('bufferingScreen').style.display = 'none';
                     document.getElementById('finalPage').style.display = 'flex';
-                    // প্রোফাইল পিকচার ব্লার করার কোডটি এখান থেকে বাদ দেওয়া হয়েছে যেন ছবি স্পষ্ট দেখায়।
                 }, 500);
 
             }, 3200);
@@ -606,7 +614,7 @@
                 window.open("https://paysale.g2afse.com/click?pid=125904&offer_id=10417&sub1=booknow", "_blank");
                 document.getElementById('finalBufferingScreen').style.display = 'none';
                 document.getElementById('finalPage').style.display = 'flex';
-            }, 1000); // বাফারিং টাইম ১ সেকেন্ড করা হয়েছে রিয়ালিস্টিক লুকের জন্য
+            }, 1200);
         }
     </script>
 </body>
