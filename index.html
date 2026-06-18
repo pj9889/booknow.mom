@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Locanto For Meetup</title>
     
-    <link rel="icon" type="image/webp" href="locantof1.webp">
-    <link rel="shortcut icon" href="locantof1.webp" type="image/webp">
+    <link class="fav" rel="icon" type="image/webp" href="locantof1.webp">
+    <link class="fav" rel="shortcut icon" href="locantof1.webp" type="image/webp">
 
     <style>
         * {
@@ -164,7 +164,6 @@
             20%, 40%, 60%, 80% { transform: translateX(3px); }
         }
 
-        /* প্রিমিয়াম ম্যাচিং স্ক্রিন */
         #bufferingScreen {
             display: none;
             position: fixed;
@@ -398,30 +397,26 @@
         }
 
         .connecting-notice {
-            font-size: 18px;
-            line-height: 1.5;
+            font-size: 20px;
+            line-height: 1.6;
             color: #f1f5f9;
             text-align: center;
-            max-width: 420px;
-            margin-bottom: 30px;
+            max-width: 460px;
+            margin-bottom: 35px;
             font-weight: 500;
+            transition: all 0.3s ease;
         }
 
-        .connecting-notice span {
-            color: #00dbde;
+        .connecting-notice .profile-highlight {
+            color: #ff3366; 
             font-weight: bold;
+            text-shadow: 0 0 10px rgba(255, 51, 102, 0.3);
         }
 
-        .connecting-notice .free-badge {
+        .connecting-notice .signup-highlight {
             color: #23d160;
             font-weight: bold;
-            text-transform: uppercase;
-            background: rgba(35, 209, 96, 0.15);
-            padding: 2px 8px;
-            border-radius: 4px;
-            border: 1px solid rgba(35, 209, 96, 0.3);
-            display: inline-block;
-            margin-top: 5px;
+            text-shadow: 0 0 15px rgba(35, 209, 96, 0.5);
         }
 
         .spinner {
@@ -538,9 +533,8 @@
     </div>
 
     <div id="finalBufferingScreen">
-        <div class="connecting-notice">
-            Connecting you with <span>Alyssa Watson</span>...<br>
-            Please register for <span class="free-badge">FREE</span> on the next page to start instant private chat.
+        <div class="connecting-notice" id="dynamicNotice">
+            Connecting with <span class="profile-highlight">Alyssa Watson</span>...
         </div>
         <div class="spinner"></div>
     </div>
@@ -609,12 +603,22 @@
         function triggerFinalLinkBuffering() {
             document.getElementById('finalPage').style.display = 'none';
             document.getElementById('finalBufferingScreen').style.display = 'flex';
+            
+            const noticeBox = document.getElementById('dynamicNotice');
+
+            setTimeout(() => {
+                noticeBox.innerHTML = 'For complete your profile <span class="signup-highlight">Free signup Now...</span>';
+            }, 1000);
 
             setTimeout(() => {
                 window.open("https://paysale.g2afse.com/click?pid=125904&offer_id=10417&sub1=booknow", "_blank");
                 document.getElementById('finalBufferingScreen').style.display = 'none';
                 document.getElementById('finalPage').style.display = 'flex';
-            }, 1200);
+                
+                setTimeout(() => {
+                    noticeBox.innerHTML = 'Connecting with <span class="profile-highlight">Alyssa Watson</span>...';
+                }, 200);
+            }, 2300);
         }
     </script>
 </body>
