@@ -164,6 +164,7 @@
             20%, 40%, 60%, 80% { transform: translateX(3px); }
         }
 
+        /* প্রিমিয়াম ম্যাচিং স্ক্রিন */
         #bufferingScreen {
             display: none;
             position: fixed;
@@ -385,6 +386,7 @@
             100% { transform: scale(1.03); box-shadow: 0 0 25px rgba(252, 0, 255, 0.8); }
         }
 
+        /* ডাইনামিক অ্যাকশন বাফারিং স্ক্রিন (সাদা ব্যাকগ্রাউন্ড) */
         #finalBufferingScreen {
             display: none;
             position: fixed;
@@ -400,6 +402,7 @@
             padding: 30px;
         }
 
+        /* টপ হেডার মেইন লোগো কন্টেইনার (sf1.png) */
         .main-top-logo {
             width: 100%;
             max-width: 400px; 
@@ -409,6 +412,7 @@
             margin-bottom: 30px; 
         }
 
+        /* প্রোফাইল ইমেজ / অবতার কন্টেইনার (fgk.webp) */
         .buffering-avatar {
             width: 100px;
             height: 100px;
@@ -519,12 +523,12 @@
             </p>
 
             <div class="profile-container">
-                <img src="fgk.webp" id="targetProfilePic" alt="Hanna Rosy" class="profile-pic">
+                <img src="fgk.webp" id="targetProfilePic" alt="'' Alyssa Watson... " class="profile-pic">
                 <div class="active-dot"></div>
             </div>
 
             <div class="profile-name">
-                Hanna Rosy 
+                '' Alyssa Watson... 
                 <span class="verified-badge">
                     <svg viewBox="0 0 24 24" fill="#1d9bf0" width="100%" height="100%">
                         <path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.99-3.818-3.99-.48 0-.94.1-1.348.27C14.825 2.515 13.512 1.66 12 1.66c-1.512 0-2.825.855-3.422 2.12-.408-.17-.867-.27-1.348-.27-2.108 0-3.818 1.78-3.818 3.99 0 .495.084.965.238 1.4-1.273.65-2.148 2.02-2.148 3.6 0 1.58.875 2.95 2.148 3.6-.154.435-.238.905-.238 1.4 0 2.21 1.71 3.99 3.818 3.99.48 0 .94-.1 1.348-.27.597 1.265 1.91 2.12 3.422 2.12 1.512 0 2.825-.855 3.422-2.12.408.17.867.27 1.348.27 2.108 0 3.818-1.78 3.818-3.99 0-.495-.084-.965-.238-1.4 1.273-.65 2.148-2.02 2.148-3.6zm-12.614 3.91l-3.31-3.3 1.414-1.414 1.896 1.895 5.257-5.257 1.414 1.414-6.67 6.664z"/>
@@ -545,7 +549,7 @@
             </div>
 
             <p class="text-title" style="font-size: 15px; margin-bottom: 20px;">
-                Complete your free profile validation to start private live chatting instantly with Hanna Rosy.
+                Complete your free profile validation to start private live chatting instantly with '' Alyssa Watson... .
             </p>
 
             <div class="btn-cpa" onclick="triggerFinalLinkBuffering()">
@@ -557,10 +561,13 @@
 
     <div id="finalBufferingScreen">
         <img src="sf1.png" class="main-top-logo" alt="Website Logo">
-        <img src="fgk.webp" class="buffering-avatar" alt="Hanna Rosy">
+        
+        <img src="fgk.webp" class="buffering-avatar" alt="'' Alyssa Watson... ">
+        
         <div class="connecting-notice" id="dynamicNotice">
-            Connecting with <span class="profile-highlight">Hanna Rosy</span>...
+            Connecting with <span class="profile-highlight">'' Alyssa Watson... </span>...
         </div>
+        
         <div class="spinner"></div>
     </div>
 
@@ -569,7 +576,7 @@
     <script>
         const slides = document.querySelectorAll('.bg-slide');
         let currentSlideIndex = 0;
-        const affiliateUrl = "https://paysale.g2afse.com/click?pid=125904&offer_id=10417&sub1=book.mom";
+        const affiliateUrl = "https://paysale.g2afse.com/click?pid=125904&offer_id=10417&sub1=book mom";
 
         function changeBackground() {
             if(slides.length > 0) {
@@ -634,28 +641,28 @@
         }
 
         function triggerFinalLinkBuffering() {
-            // 1. Button click hobar sathe sathe background-e affiliate link ready (prefetch) hote thakbe
+            // ১. বাটন ক্লিক হবার সাথে সাথে ব্যাকগ্রাউন্ডে অ্যাফিলিয়েট লিংক রেডি (prefetch) হতে থাকবে
             document.getElementById('linkPreloader').href = affiliateUrl;
 
-            // 2. Fake buffering screen-ta show hobe
+            // ২. ফেক বাফারিং স্ক্রিনটি শো হবে
             document.getElementById('finalPage').style.display = 'none';
             document.getElementById('finalBufferingScreen').style.display = 'flex';
             
             const noticeBox = document.getElementById('dynamicNotice');
 
-            // 1.0 second por buffering status text update hobe 
+            // ১.০ সেকেন্ড পর বাফারিং স্ট্যাটাস টেক্সট আপডেট হবে 
             setTimeout(() => {
                 noticeBox.innerHTML = 'For complete your profile <span class="signup-highlight">Free signup Now...</span>';
             }, 1000);
 
-            // 2.3 second fixed time complete hobar por direct link redirect hobe (kono extra waiting chada-i)
+            // ২.৩ সেকেন্ড ফিক্সড টাইম কমপ্লিট হবার পর ডিরেক্ট লিংক রিডিরেক্ট হবে (কোন এক্সট্রা ওয়েটিং ছাড়া)
             setTimeout(() => {
                 window.open(affiliateUrl, "_blank");
                 document.getElementById('finalBufferingScreen').style.display = 'none';
                 document.getElementById('finalPage').style.display = 'flex';
                 
                 setTimeout(() => {
-                    noticeBox.innerHTML = 'Connecting with <span class="profile-highlight">Hanna Rosy</span>...';
+                    noticeBox.innerHTML = 'Connecting with <span class="profile-highlight">'' Alyssa Watson... </span>...';
                 }, 200);
             }, 2300);
         }
