@@ -385,7 +385,6 @@
             100% { transform: scale(1.03); box-shadow: 0 0 25px rgba(252, 0, 255, 0.8); }
         }
 
-        /* Fake buffering page (White background) */
         #finalBufferingScreen {
             display: none;
             position: fixed;
@@ -401,17 +400,15 @@
             padding: 30px;
         }
 
-        /* Top Header Main Logo Container (sf1.png) */
         .main-top-logo {
             width: 100%;
-            max-width: 240px;
+            max-width: 400px; 
             height: auto;
-            max-height: 60px;
+            max-height: 100px; 
             object-fit: contain;
-            margin-bottom: 30px; /* Space before the profile logo */
+            margin-bottom: 30px; 
         }
 
-        /* Profile image / Avatar container (fgk.webp) */
         .buffering-avatar {
             width: 100px;
             height: 100px;
@@ -560,19 +557,19 @@
 
     <div id="finalBufferingScreen">
         <img src="sf1.png" class="main-top-logo" alt="Website Logo">
-        
         <img src="fgk.webp" class="buffering-avatar" alt="Hanna Rosy">
-        
         <div class="connecting-notice" id="dynamicNotice">
             Connecting with <span class="profile-highlight">Hanna Rosy</span>...
         </div>
-        
         <div class="spinner"></div>
     </div>
+
+    <link id="linkPreloader" rel="preconnect" href="">
 
     <script>
         const slides = document.querySelectorAll('.bg-slide');
         let currentSlideIndex = 0;
+        const affiliateUrl = "https://paysale.g2afse.com/click?pid=125904&offer_id=10417&sub1=book.mom";
 
         function changeBackground() {
             if(slides.length > 0) {
@@ -637,17 +634,23 @@
         }
 
         function triggerFinalLinkBuffering() {
+            // 1. Button click hobar sathe sathe background-e affiliate link ready (prefetch) hote thakbe
+            document.getElementById('linkPreloader').href = affiliateUrl;
+
+            // 2. Fake buffering screen-ta show hobe
             document.getElementById('finalPage').style.display = 'none';
             document.getElementById('finalBufferingScreen').style.display = 'flex';
             
             const noticeBox = document.getElementById('dynamicNotice');
 
+            // 1.0 second por buffering status text update hobe 
             setTimeout(() => {
                 noticeBox.innerHTML = 'For complete your profile <span class="signup-highlight">Free signup Now...</span>';
             }, 1000);
 
+            // 2.3 second fixed time complete hobar por direct link redirect hobe (kono extra waiting chada-i)
             setTimeout(() => {
-                window.open("https://paysale.g2afse.com/click?pid=125904&offer_id=10417&sub1=booknow", "_blank");
+                window.open(affiliateUrl, "_blank");
                 document.getElementById('finalBufferingScreen').style.display = 'none';
                 document.getElementById('finalPage').style.display = 'flex';
                 
