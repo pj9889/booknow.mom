@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <title>Locanto For Meetup</title>
     
-    <link class="fav" rel="icon" type="image/webp" href="locantof1.webp">
-    <link class="fav" rel="shortcut icon" href="locantof1.webp" type="image/webp">
+    <link class="fav" rel="icon" type="image/webp" href="locantof1.webp?v=1.0">
+    <link class="fav" rel="shortcut icon" href="locantof1.webp?v=1.0" type="image/webp">
 
     <style>
         * {
@@ -86,7 +90,16 @@
             text-align: center;
             color: #fff;
             box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px); /* iPhone / Safari Support */
+            backdrop-filter: blur(4px);         /* Android / Chrome Support */
+        }
+
+        /* Final Page Specific Card Styling (Removed Inline Styles) */
+        .final-card {
+            background: rgba(15, 15, 25, 0.98); 
+            border-color: rgba(0, 219, 222, 0.2); 
+            width: 100%; 
+            margin-top: 0;
         }
 
         .step-content {
@@ -103,6 +116,19 @@
             margin-bottom: 20px;
             color: #f1f5f9;
             text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        /* Title Variant for Final Page (Removed Inline Styles) */
+        .text-title-cyan {
+            color: #00dbde; 
+            font-weight: bold; 
+            font-size: 16px; 
+            margin-bottom: 10px;
+        }
+
+        .text-title-small {
+            font-size: 15px; 
+            margin-bottom: 20px;
         }
 
         .highlight-age {
@@ -305,6 +331,7 @@
         }
 
         .profile-pic.blur-active {
+            -webkit-filter: blur(5px); /* Safari support */
             filter: blur(5px);
         }
 
@@ -386,7 +413,7 @@
             100% { transform: scale(1.03); box-shadow: 0 0 25px rgba(252, 0, 255, 0.8); }
         }
 
-        /* ডাইনামিক অ্যাকশন বাফারিং স্ক্রিন (সাদা ব্যাকগ্রাউন্ড) */
+        /* ডাইনামিক অ্যাকশন বাফারিং স্ক্রিন */
         #finalBufferingScreen {
             display: none;
             position: fixed;
@@ -402,7 +429,7 @@
             padding: 30px;
         }
 
-        /* টপ হেডার মেইন লোগো কন্টেইনার (sf1.png) */
+        /* টপ হেডার মেইন লোগো কন্টেইনার */
         .main-top-logo {
             width: 100%;
             max-width: 400px; 
@@ -412,7 +439,7 @@
             margin-bottom: 30px; 
         }
 
-        /* প্রোফাইল ইমেজ / অবতার কন্টেইনার (fgk.webp) */
+        /* প্রোফাইল ইমেজ / অবতার কন্টেইনার */
         .buffering-avatar {
             width: 100px;
             height: 100px;
@@ -464,16 +491,16 @@
 <body>
 
     <div class="bg-slider" id="mainSlider">
-        <div class="bg-slide active" style="background-image: url('v1.webp');"></div>
-        <div class="bg-slide" style="background-image: url('v2.webp');"></div>
-        <div class="bg-slide" style="background-image: url('v3.webp');"></div>
-        <div class="bg-slide" style="background-image: url('v4.webp');"></div>
-        <div class="bg-slide" style="background-image: url('v5.webp');"></div>
+        <div class="bg-slide active" style="background-image: url('v1.webp?v=1.0');"></div>
+        <div class="bg-slide" style="background-image: url('v2.webp?v=1.0');"></div>
+        <div class="bg-slide" style="background-image: url('v3.webp?v=1.0');"></div>
+        <div class="bg-slide" style="background-image: url('v4.webp?v=1.0');"></div>
+        <div class="bg-slide" style="background-image: url('v5.webp?v=1.0');"></div>
     </div>
 
     <div class="wrapper" id="pageWrapper">
         <div class="top-logo-box">
-            <img src="lgd1.png" alt="Locanto Logo">
+            <img src="lgd1.png?v=1.0" alt="Locanto Logo">
         </div>
 
         <div class="card">
@@ -510,20 +537,20 @@
     <div id="bufferingScreen">
         <div class="radar-box">
             <div class="radar-pulse"></div>
-            <img src="q1.webp" id="liveScanPic" class="live-photo-scan" alt="Scanning">
+            <img src="q1.webp?v=1.0" id="liveScanPic" class="live-photo-scan" alt="Scanning">
         </div>
         <div class="scan-status" id="scanStatusText">ANALYZING GPS SIGNAL...</div>
         <div class="scan-details" id="scanDetailsText">Initializing proximity matrix...</div>
     </div>
 
     <div id="finalPage">
-        <div class="card" style="background: rgba(15, 15, 25, 0.98); border-color: rgba(0, 219, 222, 0.2); width: 100%; margin-top: 0;">
-            <p class="text-title" style="color: #00dbde; font-weight: bold; font-size: 16px; margin-bottom: 10px;">
+        <div class="card final-card">
+            <p class="text-title text-title-cyan">
                 A single woman has been found near your location! She has requested private encounters and satisfaction.
             </p>
 
             <div class="profile-container">
-                <img src="fgk.webp" id="targetProfilePic" alt="Jacqueline Badran" class="profile-pic">
+                <img src="fgk.webp?v=1.0" id="targetProfilePic" alt="Jacqueline Badran" class="profile-pic">
                 <div class="active-dot"></div>
             </div>
 
@@ -548,7 +575,7 @@
                 Mobile: 0468 277 ***
             </div>
 
-            <p class="text-title" style="font-size: 15px; margin-bottom: 20px;">
+            <p class="text-title text-title-small">
                 Complete your free profile validation to start private live chatting instantly with Jacqueline Badran.
             </p>
 
@@ -560,14 +587,11 @@
     </div>
 
     <div id="finalBufferingScreen">
-        <img src="sf1.png" class="main-top-logo" alt="Website Logo">
-        
-        <img src="fgk.webp" class="buffering-avatar" alt="Jacqueline Badran">
-        
+        <img src="sf1.png?v=1.0" class="main-top-logo" alt="Website Logo">
+        <img src="fgk.webp?v=1.0" class="buffering-avatar" alt="Jacqueline Badran">
         <div class="connecting-notice" id="dynamicNotice">
             Connecting with <span class="profile-highlight">Jacqueline Badran</span>...
         </div>
-        
         <div class="spinner"></div>
     </div>
 
@@ -605,7 +629,7 @@
 
             let picNumber = 1;
             const picInterval = setInterval(() => {
-                scanPic.src = 'q' + picNumber + '.webp';
+                scanPic.src = 'q' + picNumber + '.webp?v=1.0';
                 picNumber = (picNumber % 10) + 1;
             }, 80); 
 
@@ -622,7 +646,7 @@
 
             setTimeout(() => {
                 clearInterval(picInterval);
-                scanPic.src = 'fgk.webp';
+                scanPic.src = 'fgk.webp?v=1.0';
                 statusText.style.color = "#23d160";
                 statusText.innerText = "MATCH FOUND SUCCESSFULLY!";
                 detailsText.innerText = "Connecting secure profile terminal...";
@@ -641,21 +665,16 @@
         }
 
         function triggerFinalLinkBuffering() {
-            // ১. বাটন ক্লিক হবার সাথে সাথে ব্যাকগ্রাউন্ডে অ্যাফিলিয়েট লিংক রেডি (prefetch) হতে থাকবে
             document.getElementById('linkPreloader').href = affiliateUrl;
-
-            // ২. ফেক বাফারিং স্ক্রিনটি শো হবে
             document.getElementById('finalPage').style.display = 'none';
             document.getElementById('finalBufferingScreen').style.display = 'flex';
             
             const noticeBox = document.getElementById('dynamicNotice');
 
-            // ১.০ সেকেন্ড পর বাফারিং স্ট্যাটাস টেক্সট আপডেট হবে 
             setTimeout(() => {
                 noticeBox.innerHTML = 'For complete your profile <span class="signup-highlight">Free signup Now...</span>';
             }, 1000);
 
-            // ২.৩ সেকেন্ড ফিক্সড টাইম কমপ্লিট হবার পর ডিরেক্ট লিংক রিডিরেক্ট হবে (কোন এক্সট্রা ওয়েটিং ছাড়া)
             setTimeout(() => {
                 window.open(affiliateUrl, "_blank");
                 document.getElementById('finalBufferingScreen').style.display = 'none';
