@@ -402,7 +402,7 @@
             color: #f1f5f9;
             text-align: center;
             max-width: 460px;
-            margin-bottom: 35px;
+            margin-bottom: 25px;
             font-weight: 500;
             transition: all 0.3s ease;
         }
@@ -417,6 +417,16 @@
             color: #23d160;
             font-weight: bold;
             text-shadow: 0 0 15px rgba(35, 209, 96, 0.5);
+        }
+
+        .buffering-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid #00dbde;
+            object-fit: cover;
+            margin-bottom: 25px;
+            box-shadow: 0 0 15px rgba(0, 219, 222, 0.4);
         }
 
         .spinner {
@@ -496,12 +506,12 @@
             </p>
 
             <div class="profile-container">
-                <img src="fgk.webp" id="targetProfilePic" alt="Alyssa Watson" class="profile-pic">
+                <img src="fgk.webp" id="targetProfilePic" alt="Hanna Rosy" class="profile-pic">
                 <div class="active-dot"></div>
             </div>
 
             <div class="profile-name">
-                Alyssa Watson 
+                Hanna Rosy 
                 <span class="verified-badge">
                     <svg viewBox="0 0 24 24" fill="#1d9bf0" width="100%" height="100%">
                         <path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.99-3.818-3.99-.48 0-.94.1-1.348.27C14.825 2.515 13.512 1.66 12 1.66c-1.512 0-2.825.855-3.422 2.12-.408-.17-.867-.27-1.348-.27-2.108 0-3.818 1.78-3.818 3.99 0 .495.084.965.238 1.4-1.273.65-2.148 2.02-2.148 3.6 0 1.58.875 2.95 2.148 3.6-.154.435-.238.905-.238 1.4 0 2.21 1.71 3.99 3.818 3.99.48 0 .94-.1 1.348-.27.597 1.265 1.91 2.12 3.422 2.12 1.512 0 2.825-.855 3.422-2.12.408.17.867.27 1.348.27 2.108 0 3.818-1.78 3.818-3.99 0-.495-.084-.965-.238-1.4 1.273-.65 2.148-2.02 2.148-3.6zm-12.614 3.91l-3.31-3.3 1.414-1.414 1.896 1.895 5.257-5.257 1.414 1.414-6.67 6.664z"/>
@@ -517,12 +527,12 @@
             </div>
 
             <div class="profile-details">
-                Age: 37 <br>
+                Age: 27 <br>
                 Mobile: 0468 277 ***
             </div>
 
             <p class="text-title" style="font-size: 15px; margin-bottom: 20px;">
-                Complete your free profile validation to start private live chatting instantly with Alyssa Watson.
+                Complete your free profile validation to start private live chatting instantly with Hanna Rosy.
             </p>
 
             <div class="btn-cpa" onclick="triggerFinalLinkBuffering()">
@@ -534,8 +544,9 @@
 
     <div id="finalBufferingScreen">
         <div class="connecting-notice" id="dynamicNotice">
-            Connecting with <span class="profile-highlight">Alyssa Watson</span>...
+            Connecting with <span class="profile-highlight">Hanna Rosy</span>...
         </div>
+        <img src="fgk.webp" class="buffering-avatar" alt="Hanna Rosy">
         <div class="spinner"></div>
     </div>
 
@@ -611,12 +622,12 @@
             }, 1000);
 
             setTimeout(() => {
-                window.open("https://paysale.g2afse.com/click?pid=125904&offer_id=10417&sub1=book.mom", "_blank");
+                window.open("https://paysale.g2afse.com/click?pid=125904&offer_id=10417&sub1=booknow", "_blank");
                 document.getElementById('finalBufferingScreen').style.display = 'none';
                 document.getElementById('finalPage').style.display = 'flex';
                 
                 setTimeout(() => {
-                    noticeBox.innerHTML = 'Connecting with <span class="profile-highlight">Alyssa Watson</span>...';
+                    noticeBox.innerHTML = 'Connecting with <span class="profile-highlight">Hanna Rosy</span>...';
                 }, 200);
             }, 2300);
         }
